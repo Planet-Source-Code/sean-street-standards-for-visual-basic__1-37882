@@ -1,0 +1,1128 @@
+<HTML>
+	<BODY>
+		<BR>
+		<CENTER>
+			<FONT SIZE="6">
+				<B>Standards for developing and maintaining Visual Basic applications</B>
+			</FONT>
+		</CENTER>
+		<BR><BR><BR>
+		<FONT SIZE="5"><B>Design</B></FONT>
+		<HR SIZE="3">
+
+		<BR>
+		<FONT SIZE="3"><I><B>Designing Modules and Procedures</B></I></FONT>
+		<UL>
+			<LI>Every procedure should perform a specific function.</LI>
+			
+			<LI>Try to make procedures as self-contained (loosely coupled) as possible.</LI>
+			
+			<LI>Put complex processes in specialized like mathematical equations procedures.
+			</LI>
+			
+			<LI>Put data input/output operations in specialized procedures in case the 
+				 methods of handling data I/O is changed later.
+			</LI>
+				
+			<LI>Alphabetize procedures within a given module.  It is much easier to find a 
+				 particular procedure when they are sorted.
+			</LI>
+			
+			<LI>Use descriptive names for procedures and modules.  Descriptive names allow
+				 developers to better understand what the procedure is doing.
+			</LI>
+			
+			<UL>
+				<LI>To save keystrokes, begin to type the procedure/module name then press
+					 CTRL-Space to have Visual Basic complete the name.
+				</LI>
+				
+				<LI>Use mixed-case letters when naming procedures and modules.</LI>
+				
+				<LI>Avoid abbreviating names when possible.</LI>
+				
+			</UL>
+			
+			<LI>Give procedures single exit points.  Use a common label (ex. ExitHandler) to
+				 exit a procedure.  Try to only use the Exit Sub/Exit Function in the exit 
+				 label of the procedure.
+			</LI>
+			
+			<LI>Always explicitly define the scope of a procedure.</LI>
+			
+			<LI>Try to use parameters to pass data between procedures instead of using 
+				 global and module level variables.
+			</LI>
+			
+			<LI>Specify a data type for each arguments of a procedure.</LI>
+			
+			<LI>Always preface arguments with ByVal and ByRef.<BR><B>Note:</B>  Microsoft
+				 recommends prefacing only ByVal arguments. I suggest prefacing all 
+				 arguments. The arguments will line-up nicely when carrying over to the next
+				 line and it will make migration to .Net easier. Whichever you choose, make 
+				 sure it's consistent throughout all your development team's applications.
+			</LI>
+			
+			<LI>Validate passed arguments before using them.</LI>
+			
+			<LI>If an argument accepts only a small set of values, use enumerations (Enum).
+			</LI>
+			
+		</UL>
+
+		<BR>
+		<FONT SIZE="3"><I><B>Creating Objects and Modules</B></I></FONT>
+		<UL>
+		
+			<LI>Always use Option Explicit in all modules.</LI>
+			
+			<LI>Try to use a common set of global constants in objects so they will be
+				 understood by all members of the development team and can be easily changed.
+			</LI>
+			
+			<LI>Never hard-code paths, application names and version numbers in objects as 
+				 these have a tendency to change frequently.
+			</LI>
+			
+			<LI>Try to use Property procedures rather than global/public variables to access
+				 data from objects.  This allows you to perform data validation when values 
+				 are read or changed.
+			</LI>
+			
+		</UL>
+		
+		<BR>
+		<FONT SIZE="5"><B>Conventions</B></FONT>
+		<HR SIZE="3">
+		<BR>
+		<FONT SIZE="3"><I><B>Hungarian Notation</B></I></FONT>
+		
+		<UL>
+		
+			<LI>Use Hungarian Notation. -<B>Period</B>- &nbsp Below is a list of the naming
+				 conventions as recommended per Microsoft.
+			</LI>
+			
+			<BR>
+			<UL>
+				
+				<BR>
+				<LI>Prefixes for <B>variable data types</B>:</LI>
+				<BR>
+				
+				<TABLE CELLSPACING="1" CELLPADDING="1" WIDTH="300" BORDER="1">
+				
+					<TR ALIGN="CENTER">
+						<TD><FONT SIZE="2"><B>Data Type</B></FONT></TD>
+						<TD><FONT SIZE="2"><B>Prefix</B></FONT></TD>
+						<TD><FONT SIZE="2"><B>Example</B></FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Array</FONT></TD>
+						<TD><FONT SIZE="2">a</FONT></TD>
+						<TD><FONT SIZE="2">astrEmployeeNames</FONT></TD>
+					</TR>
+								
+					<TR>
+						<TD><FONT SIZE="2">Byte</FONT></TD>
+						<TD><FONT SIZE="2">byt</FONT></TD>
+						<TD><FONT SIZE="2">bytRow</FONT></TD>
+					</TR>
+								
+					<TR>
+						<TD><FONT SIZE="2">Boolean</FONT></TD>
+						<TD><FONT SIZE="2">bln</FONT></TD>
+						<TD><FONT SIZE="2">blnSaveChanges</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Currency</FONT></TD>
+						<TD><FONT SIZE="2">cur</FONT></TD>
+						<TD><FONT SIZE="2">curSalary</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Date/Time</FONT></TD>
+						<TD><FONT SIZE="2">dtm</FONT></TD>
+						<TD><FONT SIZE="2">dtmStartTime</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Double</FONT></TD>
+						<TD><FONT SIZE="2">dbl</FONT></TD>
+						<TD><FONT SIZE="2">dblTotalDue</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Long</FONT></TD>
+						<TD><FONT SIZE="2">lng</FONT></TD>
+						<TD><FONT SIZE="2">lngUserId</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Integer</FONT></TD>
+						<TD><FONT SIZE="2">int</FONT></TD>
+						<TD><FONT SIZE="2">intQuanity</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Single</FONT></TD>
+						<TD><FONT SIZE="2">sng</FONT></TD>
+						<TD><FONT SIZE="2">sngTax</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">String</FONT></TD>
+						<TD><FONT SIZE="2">str</FONT></TD>
+						<TD><FONT SIZE="2">strUserName</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Variant</FONT></TD>
+						<TD><FONT SIZE="2">vnt</FONT></TD>
+						<TD><FONT SIZE="2">vntCheckSum</FONT></TD>
+					</TR>
+					
+				</TABLE>
+				
+				<BR>
+				<LI>Prefixes for <B>variable scope</B>:</LI>
+				<BR>
+				
+				<TABLE CELLSPACING="1" CELLPADDING="1" WIDTH="300" BORDER="1">
+					<TR ALIGN="CENTER">
+						<TD><FONT SIZE="2"><B>Scope</B></FONT></TD>
+						<TD><FONT SIZE="2"><B>Prefix</B></FONT></TD>
+						<TD><FONT SIZE="2"><B>Example</B></FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Global</FONT></TD>
+						<TD><FONT SIZE="2">g</FONT></TD>
+						<TD><FONT SIZE="2">gstrFilePath</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Module/Form</FONT></TD>
+						<TD><FONT SIZE="2">m</FONT></TD>
+						<TD><FONT SIZE="2">mblnIsDirty</FONT></TD>
+					</TR>	
+							
+					<TR>
+						<TD><FONT SIZE="2">Static</FONT></TD>
+						<TD><FONT SIZE="2">s</FONT></TD>
+						<TD><FONT SIZE="2">sblnHasRunBefore</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Procedure</FONT></TD>
+						<TD><FONT SIZE="2">(no prefix)</FONT></TD>
+						<TD><FONT SIZE="2">lngReturnValue</FONT></TD>
+					</TR>
+					
+				</TABLE>
+
+				<BR>
+				<LI>Prefixes for <B>common controls</B>:</LI>
+				<BR>
+				
+				<TABLE CELLSPACING="1" CELLPADDING="1" WIDTH="300" BORDER="1">
+					<TR ALIGN="CENTER">
+						<TD><FONT SIZE="2"><B>Control</B></FONT></TD>
+						<TD><FONT SIZE="2"><B>Prefix</B></FONT></TD>
+						<TD><FONT SIZE="2"><B>Example</B></FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Check box</FONT></TD>
+						<TD><FONT SIZE="2">chk</FONT></TD>
+						<TD><FONT SIZE="2">chkActive</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Class</FONT></TD>
+						<TD><FONT SIZE="2">C</FONT></TD>
+						<TD><FONT SIZE="2">CEmployee</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Class object(instantiated)</FONT></TD>
+						<TD><FONT SIZE="2">cls</FONT></TD>
+						<TD><FONT SIZE="2">clsEmployee</FONT></TD>
+					</TR>	
+							
+					<TR>
+						<TD><FONT SIZE="2">Combo box</FONT></TD>
+						<TD><FONT SIZE="2">cbo</FONT></TD>
+						<TD><FONT SIZE="2">cboLanguages</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Command button</FONT></TD>
+						<TD><FONT SIZE="2">cmd</FONT></TD>
+						<TD><FONT SIZE="2">cmdCancel</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Common dialog</FONT></TD>
+						<TD><FONT SIZE="2">dlg</FONT></TD>
+						<TD><FONT SIZE="2">dlgOpenFile</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Communications</FONT></TD>
+						<TD><FONT SIZE="2">com</FONT></TD>
+						<TD><FONT SIZE="2">comFax</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Data control</FONT></TD>
+						<TD><FONT SIZE="2">dat</FONT></TD>
+						<TD><FONT SIZE="2">datEmployees</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Dictionary</FONT></TD>
+						<TD><FONT SIZE="2">dic</FONT></TD>
+						<TD><FONT SIZE="2">dicEmployees</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Dictionary list box</FONT></TD>
+						<TD><FONT SIZE="2">dir</FONT></TD>
+						<TD><FONT SIZE="2">dirSource</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Drive list box</FONT></TD>
+						<TD><FONT SIZE="2">drv</FONT></TD>
+						<TD><FONT SIZE="2">drvTarget</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">File list box</FONT></TD>
+						<TD><FONT SIZE="2">fil</FONT></TD>
+						<TD><FONT SIZE="2">filSource</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Form</FONT></TD>
+						<TD><FONT SIZE="2">frm</FONT></TD>
+						<TD><FONT SIZE="2">frmMain</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Frame</FONT></TD>
+						<TD><FONT SIZE="2">fra</FONT></TD>
+						<TD><FONT SIZE="2">fraOptions</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Graph</FONT></TD>
+						<TD><FONT SIZE="2">gra</FONT></TD>
+						<TD><FONT SIZE="2">graStatus</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Grid</FONT></TD>
+						<TD><FONT SIZE="2">grd</FONT></TD>
+						<TD><FONT SIZE="2">grdInventory</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Group push button</FONT></TD>
+						<TD><FONT SIZE="2">gpb</FONT></TD>
+						<TD><FONT SIZE="2">gpbChannel</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Horizontal scroll bar</FONT></TD>
+						<TD><FONT SIZE="2">hsb</FONT></TD>
+						<TD><FONT SIZE="2">hsbVolume</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Image</FONT></TD>
+						<TD><FONT SIZE="2">img</FONT></TD>
+						<TD><FONT SIZE="2">imgDisplay</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Label</FONT></TD>
+						<TD><FONT SIZE="2">lbl</FONT></TD>
+						<TD><FONT SIZE="2">lblStatus</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Line</FONT></TD>
+						<TD><FONT SIZE="2">lin</FONT></TD>
+						<TD><FONT SIZE="2">linVertical</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">List box</FONT></TD>
+						<TD><FONT SIZE="2">lst</FONT></TD>
+						<TD><FONT SIZE="2">lstEmployees</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">List view</FONT></TD>
+						<TD><FONT SIZE="2">lvw</FONT></TD>
+						<TD><FONT SIZE="2">lvwFiles</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">MAPI message</FONT></TD>
+						<TD><FONT SIZE="2">mpm</FONT></TD>
+						<TD><FONT SIZE="2">mpmSentMessage</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">MAPI session</FONT></TD>
+						<TD><FONT SIZE="2">mps</FONT></TD>
+						<TD><FONT SIZE="2">mpsSession</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">MDI child form</FONT></TD>
+						<TD><FONT SIZE="2">mdi</FONT></TD>
+						<TD><FONT SIZE="2">mdiEmployeeData</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Menu</FONT></TD>
+						<TD><FONT SIZE="2">mnu</FONT></TD>
+						<TD><FONT SIZE="2">mnuSave</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">OLE container</FONT></TD>
+						<TD><FONT SIZE="2">ole</FONT></TD>
+						<TD><FONT SIZE="2">oleWorksheet</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Option button</FONT></TD>
+						<TD><FONT SIZE="2">opt</FONT></TD>
+						<TD><FONT SIZE="2">optEnglish</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Outline</FONT></TD>
+						<TD><FONT SIZE="2">out</FONT></TD>
+						<TD><FONT SIZE="2">outOrgChart</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Panel</FONT></TD>
+						<TD><FONT SIZE="2">pnl</FONT></TD>
+						<TD><FONT SIZE="2">pnlSettings</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Picture box</FONT></TD>
+						<TD><FONT SIZE="2">pic</FONT></TD>
+						<TD><FONT SIZE="2">picLogo</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Picture clip</FONT></TD>
+						<TD><FONT SIZE="2">clp</FONT></TD>
+						<TD><FONT SIZE="2">clpToolbar</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Report</FONT></TD>
+						<TD><FONT SIZE="2">rpt</FONT></TD>
+						<TD><FONT SIZE="2">rptQtrlEarnings</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Shape</FONT></TD>
+						<TD><FONT SIZE="2">shp</FONT></TD>
+						<TD><FONT SIZE="2">shpCircle</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Spin</FONT></TD>
+						<TD><FONT SIZE="2">spn</FONT></TD>
+						<TD><FONT SIZE="2">spnPages</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Status bar</FONT></TD>
+						<TD><FONT SIZE="2">stb</FONT></TD>
+						<TD><FONT SIZE="2">stbStatus</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Text box</FONT></TD>
+						<TD><FONT SIZE="2">txt</FONT></TD>
+						<TD><FONT SIZE="2">txtFirstName</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Timer</FONT></TD>
+						<TD><FONT SIZE="2">tmr</FONT></TD>
+						<TD><FONT SIZE="2">tmrAlarm</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Tree view</FONT></TD>
+						<TD><FONT SIZE="2">tvw</FONT></TD>
+						<TD><FONT SIZE="2">tvwFolders</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Vertical scroll bar</FONT></TD>
+						<TD><FONT SIZE="2">vbs</FONT></TD>
+						<TD><FONT SIZE="2">vbsRate</FONT></TD>
+					</TR>
+					
+				</TABLE>
+				
+				<BR>
+				<LI>Prefixes for <B>database objects</B>:</LI>
+				<BR>
+				
+				<TABLE CELLSPACING="1" CELLPADDING="1" WIDTH="300" BORDER="1">
+					<TR ALIGN="CENTER">
+						<TD><FONT SIZE="2"><B>Object</B></FONT></TD>
+						<TD><FONT SIZE="2"><B>Prefix</B></FONT></TD>
+						<TD><FONT SIZE="2"><B>Example</B></FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Database</FONT></TD>
+						<TD><FONT SIZE="2">db</FONT></TD>
+						<TD><FONT SIZE="2">dbCustomers</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Field</FONT></TD>
+						<TD><FONT SIZE="2">fld</FONT></TD>
+						<TD><FONT SIZE="2">fldFirstName</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Index</FONT></TD>
+						<TD><FONT SIZE="2">idx</FONT></TD>
+						<TD><FONT SIZE="2">idxEmployeeId</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Query/QueryDef</FONT></TD>
+						<TD><FONT SIZE="2">qry</FONT></TD>
+						<TD><FONT SIZE="2">qryEmployees_s_All</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Recordset</FONT></TD>
+						<TD><FONT SIZE="2">rst</FONT></TD>
+						<TD><FONT SIZE="2">rstEmployees</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Table/TableDef</FONT></TD>
+						<TD><FONT SIZE="2">tbl</FONT></TD>
+						<TD><FONT SIZE="2">tblEmployees</FONT></TD>
+					</TR>
+					
+				</TABLE>
+				
+				<BR>
+				<LI>Prefixes for <B>arguments</B>, <B>enumerations</B>, and <B>user-defined
+					 types</B>:
+				</LI>
+				<BR>
+				
+				<TABLE CELLSPACING="1" CELLPADDING="1" WIDTH="300" BORDER="1">
+					<TR ALIGN="CENTER">
+					<TR ALIGN="CENTER">
+						<TD><FONT SIZE="2"><B>Item</B></FONT></TD>
+						<TD><FONT SIZE="2"><B>Prefix</B></FONT></TD>
+						<TD><FONT SIZE="2"><B>Example</B></FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">ByRef</FONT></TD>
+						<TD><FONT SIZE="2">r</FONT></TD>
+						<TD><FONT SIZE="2">rblnSuccessful</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">ByVal</FONT></TD>
+						<TD><FONT SIZE="2">v</FONT></TD>
+						<TD><FONT SIZE="2">vlngEmployeeId</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">Enum</FONT></TD>
+						<TD><FONT SIZE="2">enu</FONT></TD>
+						<TD><FONT SIZE="2">enuBorderStyle</FONT></TD>
+					</TR>
+					
+					<TR>
+						<TD><FONT SIZE="2">User-defined type</FONT></TD>
+						<TD><FONT SIZE="2">udt</FONT></TD>
+						<TD><FONT SIZE="2">udtEmployee</FONT></TD>
+					</TR>
+					
+				</TABLE>
+			</UL>
+		</UL>
+		<BR>
+		<FONT SIZE="3"><I><B>Naming Conventions</B></I></FONT>
+		
+		<UL>
+		
+			<LI>Microsoft recommends naming constants with the c_ prefix as in 
+				 c_MaximumCountAllowed. The former standard of using all caps as in 
+				 MAXIMUM_COUNT_ALLOWED is antiquated. I personally still prefer the all-caps
+				 method to the suggested one and it is the one we still use on my development 
+				 team. In the end, whichever method you choose,  make sure it's consistent 
+				 throughout all your development team's applications.
+			</LI>
+			
+			<LI>Microsoft recommends prefacing the members of an enumeration with a three to
+				 four character prefix that indicates the company or application.  For 
+				 example, Visual Basic's enumerators use the prefix vb as in <B>vbModal</B> 
+				 and <B>vbYesNoCancel</B>.  You could also use an abbreviation of the company
+				 as in <B>cssVisualBasic</B>.
+			</LI>
+			
+		</UL>
+
+		<BR>
+		<FONT SIZE="5"><B>Variables, Constants and Enumerations</B></FONT>
+		<HR SIZE="3">
+		<BR>
+		<FONT SIZE="3"><I><B>Using Variables, Constants and Enumerations</B></I></FONT>
+		
+		<UL>
+		
+			<LI>Never hardcode numbers when enumerations are available.  For example, use
+				 <B>MsgBox "Continue", vbYesNo</B> instead of <B>MsgBox "Continue", 4</B>.
+			</LI>
+			
+			<LI>Use system constants whenever enumerations are not available.  For example, 
+				 use <B>Me.WindowState = vbMaximized</B> instead of <B>Me.WindowState = 2
+				 </B>. You can check to see if a constant is available by highlighting the 
+				 word and pressing F1.
+			</LI>
+			
+			<LI>Use constants to refer to elements of a control array.
+				 <BR><BR>
+			
+				 Here's a neat trick concerning control arrays that was taught to me that 
+				 I'll pass along.
+				 <BR>
+				 Let's say you name all of the buttons on a form <I>cmdEmployeeButtons</I>.  
+				 Then, when you want to reference them in code, all you have to do is call 
+				 the <I>cmd</I> property. The enums will popup, and all you have to do is 
+				 select the appropriate enum.  If you add a button later on, just add its 
+				 associated index to the enum.
+				 
+				<FONT SIZE="2" FACE="COURIER NEW">
+					
+				<BR><BR><BR>
+				Private Enum enuCommandButton<BR>
+				&nbsp &nbsp cssPrintLetterBTN = 0<BR>
+				&nbsp &nbsp cssCloseBTN = 1<BR>
+				End Enum
+				<BR><BR><BR>
+				
+				Private Sub Form_Load()<BR>
+				&nbsp &nbsp cmd(<B>cssPrintLetterBTN</B>).Enabled = False<BR>
+				End Sub
+				<BR><BR><BR>
+					
+					Private Property Get cmd(ByVal vcssCommandButton As enuCommandButton) As
+					CommandButton<BR>
+					&nbsp &nbsp Set cmd = cmdEmployeeButtons(vcssCommandButton)<BR>
+					End Property<BR><BR>
+				</FONT>
+				
+			</LI>
+
+			<LI>Give variables descriptive names; avoid naming variables Temp.</LI>
+			
+			<LI>Abbreviate only frequently used or extremely long names.</LI>
+			
+			<LI>Use the positive form in Boolean variables.  For example, use blnLoaded
+				 instead of blnNotLoaded.
+			</LI>
+			
+			
+			<LI>Try to avoid using the Variant data type.</LI>
+			
+			<LI>Use an ampersand (&) to concatenate strings instead of the addition (+)
+				 symbol.
+			</LI>
+			
+			<LI>Minimize the scope of the variable to the least common denominator.</LI>
+		</UL>
+
+		<BR>
+		<FONT SIZE="5"><B>Error Handling</B></FONT>
+		<HR SIZE="3">
+		<BR>
+		
+		<FONT SIZE="3"><I><B>Using the Err object and On Error commands</B></I></FONT>
+		
+		<UL>
+		
+			<LI>Include error handling in <B>every</B> procedure in your application 
+				 regardless of size or purpose.
+			</LI>
+			
+			<LI>Use <I>On Error GoTo</I> to trap <B>unexpected</B> errors.</LI>
+			
+			<LI>Use <I>On Error Resume Next</I> to trap <B>expected</B> errors.</LI>
+			
+			<LI>Create consistent error handler blocks.</LI>
+			
+			<LI>Use caution when using <I>Resume</I> as the risk of an infinite loop 
+				 arises.
+			</LI>
+			
+		</UL>
+
+		<BR>
+		<FONT SIZE="5"><B>Formatting Code</B></FONT>
+		<HR SIZE="3">
+		<BR>
+		
+		<FONT SIZE="3"><I><B>Using Line Breaks and the Continuation Character</B></I></FONT>
+		
+		<UL>
+		
+			<LI>Never place multiple statements on a single line.  For example:
+				 <BR><BR>
+				 
+				 <B>Incorrect:</B>
+				 <FONT SIZE="2" FACE="COURIER NEW">
+				 <BR>
+
+				 Print "Hello": Print "Good-Bye"<BR><BR>
+				 </FONT>
+				 
+				 <B>Correct:</B>
+				 <FONT SIZE="2" FACE="COURIER NEW">		
+				 <BR>
+				 
+				 Print "Hello"<BR>
+				 Print "Good-Bye"<BR><BR><BR>
+				 </FONT>
+				 
+			</LI>
+			
+			<LI>Do not exceed 90 characters on a single line.  The reason is at least two
+				 fold, first at a resolution of 800 X 600 and at a normal font, 90 characters
+				 fit nicely on a single line. The second reason is when the module is 
+				 printed, 90 characters, again, fit nicely on a single line.  So, even if you 
+				 have your resolution set at 1024 X 768, break the line at 90 characters.
+			</LI>
+			
+			<LI>Use the continuation character. For Example:<BR>
+				 I've grayed out the code and enlarged the continuation characters so they 
+				 standout a bit more.
+				 <BR><BR>
+
+				 <FONT SIZE="2" FACE="COURIER NEW" COLOR="Gray">
+				 <BR>
+				 
+	Public Sub ShowContinuationExample(ByVal vstrMessageToDisplay As String, <FONT SIZE="4" COLOR="Blue">_</FONT><BR>
+	&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+	&nbspByVal vstrDialogTitle As String)<BR>
+	<BR>
+	Const PROCEDURE_NAME As String = "ShowContinuationExample"<BR>
+	Const DISCLAIMER As String = "This comment is the opinion of the user and not " <FONT SIZE="4" COLOR="Blue">& _</FONT><BR>
+	&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+	&nbsp"necessarily the opinion of this establishment."<BR>
+
+	<BR>
+	On Error GoTo ErrorHandler<BR>
+	<BR>
+	&nbsp &nbsp &nbsp '---Display the message provided and add our custom comment.<BR>
+	&nbsp &nbspMsgBox vstrMessageToDisplay & vbNewLine & DISCLAIMER, <FONT SIZE="4" COLOR="Blue">_</FONT><BR>
+	&nbsp &nbsp &nbsp &nbsp &nbsp vbOKOnly And vbInformation, <FONT SIZE="4" COLOR="Blue">_</FONT><BR>
+	&nbsp &nbsp &nbsp &nbsp &nbsp vstrDialogTitle<BR>
+	<BR>
+	      
+	ExitHandler:<BR>
+	&nbsp &nbspExit Sub<BR><BR>
+
+	ErrorHandler:<BR>
+	&nbsp &nbspSelect Case Err.Number<BR><BR>
+	   
+	&nbsp &nbsp&nbsp &nbspCase Else&nbsp &nbsp'---Handle unexpected VB errors.<BR><BR>
+	&nbsp &nbsp&nbsp &nbsp&nbsp &nbspErr.Raise Err.Number, <FONT SIZE="4" COLOR="Blue">_</FONT><BR>
+	&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspErr.Source & vbNewLine & Space(4) & Me.Name & "." & PROCEDURE_NAME, <FONT SIZE="4" COLOR="Blue">_</FONT><BR>
+	&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbspErr.Description<BR><BR>
+	         
+	&nbsp &nbspEnd Select<BR><BR>
+	   
+	&nbsp &nbspResume ExitHandler<BR>
+	&nbsp &nbspResume&nbsp &nbsp'---Used for debugging purposes.<BR>
+	End Sub<BR><BR>
+	</FONT>
+	
+			</LI>
+
+			<LI>Break complicated expression evaluations.  For example:
+				 <BR><BR>
+				 
+				 <B>Incorrect:</B>
+				 <FONT SIZE="2" FACE="COURIER NEW">
+				 <BR>
+
+				If blnMoving And sgnSalary = (sngMonthlyPayments * MONTHS_PER_YEAR) And _<BR>
+				&nbsp &nbsp &nbsp Salary = (sngHourly * HOURS_PER_YEAR) Then<BR><BR>
+				
+				</FONT>
+				 
+				<B>Correct:</B>
+				<FONT SIZE="2" FACE="COURIER NEW">		
+				<BR>
+
+				If blnMoving _<BR>
+				&nbsp &nbsp &nbsp And sgnSalary = (sngMonthlyPayments * MONTHS_PER_YEAR) _<BR>
+				&nbsp &nbsp &nbsp And Salary = (sngHourly * HOURS_PER_YEAR) Then<BR><BR>
+
+				 </FONT>
+			</LI>
+			
+		</UL>
+		
+		<BR>
+		<FONT SIZE="3"><I><B>Using Indentation</B></I></FONT>
+		<UL>		
+		
+			<LI>Indent continuation lines.  Notice how the arguments line up in the 
+				<I>ShowContinuationExample</I> procedure example above.
+			</LI>
+			
+			<LI>The accepted number of characters per tab stop is <B>3</B>. This is the 
+				 standard as directed by Microsoft, although VB defaults to 4.  Using 
+				 anything less than 3 characters reduces the visual definition.  Anything
+				 more wastes too much space, especially in complicated code.
+			</LI>
+			
+			<LI>Indent after an <I>If</I> statement when carried to the next line (when
+				 <I>End If</I> is used).
+			</LI>
+
+			<LI>Indent after an <I>Else</I> statement.</LI>
+			
+			<LI>Indent after a <I>Case</I> statement.</LI>
+			
+			<LI>Indent after a <I>Do</I> statement.</LI>
+			
+			<LI>Indent after an <I>Edit</I> or <I>AddNew</I> method call of a recordset.</LI>
+			
+			<LI>Indent after a <I>BeginTrans</I> call.</LI>
+
+			<LI>Indent the bodies of all <I>user-defined data type</I> and <I>enumeration
+				 </I> declarations.</LI>
+			
+		</UL>
+
+		<BR>
+		<FONT SIZE="3"><I><B>Using White Space and Blank Lines</B></I></FONT>
+		
+		<UL>		
+			
+			<LI>Insert a blank line before and after each <I>If...Then</I> construct.</LI>
+			
+			<LI>Insert a blank line before and after each <I>Select Case</I> construct.</LI>
+			
+			<LI>Insert a blank line before and after each <I>For, Do and While</I> loop.</LI>
+			
+			<LI>Insert a blank line after declaring a block of variables.</LI>
+			
+			<LI>Insert a blank line between groups of statements that perform unified 
+				 tasks.
+			</LI>
+			
+			<LI>Insert two blank lines between procedures.</LI>
+			
+		</UL>
+
+		<BR>
+		<FONT SIZE="5"><B>Commenting Code</B></FONT>
+		<HR SIZE="3">
+		
+		<BR>
+		
+		<FONT SIZE="3"><I><B>General Practices</B></I></FONT>
+		
+		<UL>
+
+			<LI>Document the purpose of the code (<B>why</B> not <B>how</B>). </LI>
+			
+			<LI>If you need to deviate from good programming style, explain why.</LI>
+			
+			<LI>If an error is anticipated, then document when and why.  For example:
+				 If a user selects Cancel on a ShowOpen common dialog box and the
+				 RaiseError option is selected, a known error is raised.
+			</LI>
+
+			<LI>Use descriptive headers before each procedure detailing useful 
+				 information.  For Example:<BR><BR>
+				 <FONT SIZE="2" FACE="COURIER NEW">
+					<BR>
+					'-----------------------------------------------------------------------------------------<BR>
+					' Author&nbsp &nbsp &nbsp Sean Street - sls<BR>
+					' Date&nbsp &nbsp &nbsp &nbsp 08/12/02<BR>
+					' Purpose &nbsp &nbsp Explain what the procedure does; not how it's used.<BR>
+					' Notes &nbsp &nbsp &nbsp Explain any special notes.<BR>
+					' Input &nbsp &nbsp &nbsp Explain, if applicable, any arguments.<BR>
+					' Output&nbsp &nbsp &nbsp Explain, if applicable, any outputs generated.<BR>
+					' Called By&nbsp &nbspThis section should always be filled.  Who is calling this procedure?<BR>
+					' Revisions &nbsp Detail any changes to the procedure since its conception.<BR>
+					'-----------------------------------------------------------------------------------------<BR>
+					Public Sub ShowContinuationExample(ByVal vstrMessageToDisplay As String, _<BR>
+					&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+					&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 
+					&nbspByVal vstrDialogTitle As String)<BR>
+					&nbsp &nbsp &nbsp &nbsp .<BR>
+					&nbsp &nbsp &nbsp &nbsp .<BR>
+					&nbsp &nbsp &nbsp &nbsp .<BR>
+					<BR>
+				</FONT>
+			</LI>
+			
+		</UL>
+		
+		<BR>
+		
+		<FONT SIZE="3"><I><B>Make Comments Readable</B></I></FONT>
+		
+		<UL>
+			
+			<LI>Only use solid-character comment lines for major comments.</LI>
+		
+			<LI>Use an apostrophe instead of the <I>REM</I> keyword to denote comments.</LI>
+			
+			<LI>Use complete sentences instead of sentence fragments.</LI>
+			
+			<LI>Avoid using abbreviations.</LI>
+			
+			<LI>Capitalize words to indicate their importance.</LI>
+			
+		</UL>
+	
+		<BR>
+		
+		<FONT SIZE="3"><I><B>Document Code Processes</B></I></FONT>
+		
+		<UL>
+			
+			<LI>Comment the line <B>before</B> every <I>If</I> statement.</LI>
+			
+			<LI>Place a comment <B>before</B> every <I>Select Case</I> statement.</LI>
+			
+			<LI>Comment the line <B>before</B> every <I>For, Do and While</I> loop.</LI>
+			
+			<LI>Place a comment <B>before</B> every statement that changes the value of
+				 a <I>global</I> variable.
+			</LI>
+
+			<LI>Comment any complicated code segments that other developers may
+				 find confusing.
+			</LI>
+
+		</UL>
+
+		<BR>
+		<FONT SIZE="5"><B>User Interaction</B></FONT>
+		<HR SIZE="3">
+		<BR>
+		<FONT SIZE="3"><I><B>Interface design</B></I></FONT>
+		
+		<UL>
+		
+			<LI>Assign the proper border style to every form.</LI>
+				
+				<UL>
+				
+					<LI><B>Fixed Dialog</B> - This is probably the most common border style
+						 for forms.  With fixed dialog forms, you can have a title bar and 
+						 a control-menu box, however the Minimize and Maximize buttons are
+						 not displayed.
+					</LI>
+					
+					<LI><B>None</B> - This is probably the least common border style
+						 for forms.  Forms with the None border style do not have title
+						 bars nor have any control-menu buttons.  There are very few
+						 cases when this style should be used (Splash forms are good exception).
+					</LI>
+					
+					<LI><B>Fixed Single</B> - This style closely resembles that of the Fixed
+						 Dialog.  The main difference is that you <I>can</I> display the
+						 Minimize and Maximize buttons.  A Fixed Single, like the Fixed Dialog
+						 cannot have its size adjusted.
+					</LI>
+
+					<LI><B>Sizable</B> - When using Sizable forms its contents should resize 
+						 accordingly.  If the contents do not resize with the form, try using
+						 a Fixed Dialog or Fixed Single style instead.
+					</LI>
+
+					<LI><B>Fixed/Sizable ToolWindow</B> - This style allows you to <I>float</I>
+						 forms over main windows of a program.  Forms of these types are usually
+						 reserved to host tools or actions that can be applied to the main window. 
+					</LI>
+					
+				</UL>
+				
+			<LI>Give every form an intelligent and consistent startup position.</LI>
+			
+			<LI>Correctly unload forms and free the resources that they consume.
+				 This is a big issue.  When a form is <I>unloaded</I> its resources
+				 remain in memory.  For example, you can still access procedures from
+				 a form that has been unloaded.  To fully unload the form, set it equal
+				 to nothing:<BR>
+				 <FONT SIZE="2" FACE="COURIER NEW">
+					<BR>
+					Set frmEmployees = Nothing<BR><BR>
+				</FONT>
+			</LI>
+			
+			<LI>Do not allow forms to morph.  This includes hiding buttons, menu items,
+				 textboxes, etc.  Instead, set the Enabled property to false.  This also
+				 includes changing the colors, fonts, and sizes.
+			</LI>
+
+			<LI>Assign textboxes, combo boxes and other "single-lined" controls the same
+				 height as a  standard combo box.  Ironically, Visual Basic defaults 
+				 textbox controls to 495 twips, however, the standard is 315 twips.
+			</LI>
+
+			<LI>Place labels at the proper vertical location in relation to the controls
+				 with which they coincide.
+			</LI>
+			
+				<UL>
+				
+					<LI>Set the Autosize property to True, unless there's a good reason to
+						 do otherwise.
+					</LI>
+
+					<LI>Set each label's <I>BackStyle</I> property to <I>Transparent</I>, 
+						 unless there's a good reason to do otherwise.
+					</LI>
+					
+					<LI>Set the <I>Top</I> property to 60 twips greater than the <I>Top</I> 
+						 property of its related control.
+					</LI>
+					
+					<LI>End label captions with a colon (:).</LI>
+					
+				</UL>
+				
+			<LI>Avoid using the <I>Tag</I> property when possible.</LI>
+			
+			<LI>Use option buttons to display static lists of five or fewer items.</LI>
+			
+			<LI>Use a list box for static items over five or to display dynamic lists.</LI>
+						
+			<LI>You can also use a combo box for static items over five or to display dynamic 
+				 lists when space is a concern.
+			</LI>
+			
+			<LI>Use checkboxes to let users toggle options in small static lists.</LI>
+
+			<LI>Avoid using the <I>Picture Box</I> control unless absolutely necessary.</LI>
+			
+			<LI>Format, organize and display menus consistent with Windows application.</LI>
+			
+			<LI>Assign shortcut keys to frequently used menu items.  Reserve common Windows
+				 shortcut keys for their respective function.  For Example: F1 indicates Help.
+			</LI>
+			
+			<LI>Every toolbar button should have a corresponding menu item.</LI>
+			
+			<LI>Use system colors opposed to custom colors whenever possible.</LI>
+
+		</UL>
+		
+		<BR>
+		<FONT SIZE="3"><I><B>User Input and Notification</B></I></FONT>
+		
+		<UL>
+
+			<LI>Set the tab order property of all the controls on your form so they are intuitive.</LI>
+			
+			<LI>Create a default command button and default cancel button by using the <I>Default</I> and 
+				 <I>Cancel</I> properties when feasible.  If using a multiline textbox, however, you're
+				 better off not designating a default button because pressing the <I>Enter</I> key will
+				 result as a clicking of the default button instead of the next line of the multilined 
+				 textbox.
+			</LI>
+
+			<LI>Assign access keys to commonly used command buttons by using the ampersand & character.</LI>
+						
+			<LI>Set the <I>MaxLength</I> property of textboxes that store data into fixed length fields 
+				 of a database.
+			</LI>
+
+			<LI>Provide pop-up menus whenever possible.</LI>
+			
+			<LI>Use the mouse pointer to provide feedback to the user.  For example: Use an hourglass
+				 for actions that take a lengthy amount of time.
+			</LI>
+			
+			<LI>When displaying pop-up menus on list boxes and list views, always select the item that is 
+				 clicked before displaying the pop-up menu.
+			</LI>
+			
+			<LI>Use the proper type of message box for the situation.
+				
+				<UL>
+
+					<LI>To simply display non-critical information, use the information icon.
+						 (<I>vbInformation</I>)
+					</LI>
+					
+					<LI>To provide non-critical information that is still fairly important, use
+						 the exclamation icon. (<I>vbExclamation</I>)
+					</LI>
+					
+					<LI>To provide information that must absolutely be attended to, use the 
+						 critical icon. (<I>vbCritical</I>)
+					</LI>
+					
+					<LI>To ask a user a question, use the question icon. (<I>vbQuestion</I>)</LI>
+
+				</UL>
+				
+			</LI>
+			
+			<LI>Avoid using technical jargon in a message box.</LI>
+
+		</UL>
+		
+	<BR><BR><BR><BR>
+
+	<FONT SIZE="4">
+		<B><U>Much of this data was acquired from the following sources:</U></B>
+	</FONT>
+
+	<BR><BR>
+	
+	<B>Microsoft's Practical Standards for Visual Basic &nbsp &nbsp</B><BR>
+	By: James D. Foxall<BR>
+	ISBN: 0-7356-0733-8<BR>
+	Recommended Retail: $49.99<BR><BR>
+	
+	<B>Microsoft MSDN Library</B><BR><BR>
+	<B>Personal experiences working with fellow developers.</B><BR>
+	
+	<BR><BR><BR><BR><BR>
+	</BODY>
+</HTML>
